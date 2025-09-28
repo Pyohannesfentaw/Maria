@@ -691,55 +691,55 @@ function getImageForArtwork(artworkName) {
   // Map artwork names to image configurations
   const artworkConfigs = {
     "Artwork1 View": {
-      path: "img/Artwork1.jpg",
+      path: "img/Artwork1.JPG",
       width: "600px",
       height: "570px",
       offsetX: "-60px",
       offsetY: "-50px"
     },
     "Artwork2 View": {
-      path: "img/Artwork2.jpg",
+      path: "img/Artwork2.JPG",
       width: "540px",
       height: "720px",
       offsetX: "32px",
       offsetY: "14px"
     },
     "Artwork4 View": {
-      path: "img/Artwork4.jpg",
+      path: "img/Artwork4.JPG",
       width: "750px",
       height: "960px",
       offsetX: "-38px"
     },
     "Artwork5 View": {
-      path: "img/Artwork5.jpg",
+      path: "img/Artwork5.JPG",
       width: "560px",
       height: "717px",
       offsetX: "-14px",
       offsetY: "14px"
     },
     "Artwork6 View": {
-      path: "img/Artwork6.jpg",
+      path: "img/Artwork6.JPG",
       width: "630px",
       height: "723px",
       offsetX: "-19px",
       offsetY: "23px"
     },
     "Artwork7 View": {
-      path: "img/Artwork7.jpg",
+      path: "img/Artwork7.JPG",
       offsetX: "-43px",
       offsetY: "37px",
       width: "510px",
       height: "630px"
     },
     "Artwork8 View": {
-      path: "img/Artwork8.jpg",
+      path: "img/Artwork8.JPG",
       width: "590px",
       height: "480px",
       offsetX: "-40px",
       offsetY: "20px"
     },
     "Artwork9 View": {
-      path: "img/Artwork9.jpg",
+      path: "img/Artwork9.JPG",
       width: "580px",
       height: "660px",
       offsetX: "14px",
@@ -749,7 +749,7 @@ function getImageForArtwork(artworkName) {
   
   // Default config
   const defaultConfig = {
-    path: "img/Artwork1.jpg",
+    path: "img/Artwork1.JPG",
     width: "500px",
     height: "400px"
   };
