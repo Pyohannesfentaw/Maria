@@ -91,63 +91,63 @@ function createZoomPoints(center, size) {
       position: new THREE.Vector3(1.006, 1.336, -0.114),
       lookAt: new THREE.Vector3(0.407, 1.385, -0.055),
       name: "Aan Tafel",
-      info: "rotate and click on the green points to have a better view",
+      info: "Welcome to the virtual art gallery! This central viewing point offers a perfect starting place to explore the collection. Look around to discover the orange markers that indicate artworks throughout the space. Click on these markers to view each piece up close and learn about its story. Use the navigation buttons to move between artworks or click elsewhere to return to your previous position.",
       isArtwork: true
     },
     {
         position: new THREE.Vector3(2.724, 2.062, 0.846),
         lookAt: new THREE.Vector3(7.770, 2.359, -1.409),
         name: "Artwork1 View",
-        info: "View of the artwork",
+        info: "This piece was inspired by the interplay of light and shadow in Amsterdam's canal houses. Created during a particularly rainy autumn, it captures the warm glow that emerges from within the darkness. The artist used a unique layering technique to achieve the depth and luminosity that characterizes this work.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(3.006, 3.334, 0.484),
         lookAt: new THREE.Vector3(7.967, 3.131, -1.247),
         name: "Artwork2 View",
-        info: "View of the artwork",
+        info: "This artwork is a reflection on the relationship between nature and architecture. The artist explores the tension between the organic forms of the natural world and the geometric structures of human creation. The result is a captivating blend of textures and colors that invites the viewer to contemplate the intersection of these two realms.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-2.356, 2.501, -0.712),
         lookAt: new THREE.Vector3(-3.259, 2.551, -2.794),
         name: "Artwork4 View",
-        info: "View of the artwork",
+        info: "This striking piece represents the artist's exploration of memory and identity. Inspired by childhood recollections of summer afternoons, the vibrant colors and bold brushstrokes create a sense of nostalgia while simultaneously challenging our perception of remembered spaces. The painting took over six months to complete as layers were continuously added and refined.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-1.508, 2.264, 2.289),
         lookAt: new THREE.Vector3(-2.265, 2.312, 2.584),
         name: "Artwork5 View",
-        info: "View of the artwork on north wall",
+        info: "This contemplative work explores themes of solitude and inner peace. Created during the artist's retreat in the mountains, it captures the serene quality of morning light as it filters through mist. The subtle color palette and delicate brushwork invite viewers to pause and reflect on moments of quiet beauty in their own lives. The piece won critical acclaim when first exhibited in 2023.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-1.785, 3.486, 2.401),
         lookAt: new THREE.Vector3(-2.195, 3.490, 2.559),
         name: "Artwork6 View",
-        info: "View of the artwork on north wall",
+        info: "This dynamic composition challenges conventional notions of perspective and space. The artist, influenced by both cubism and digital art, created this piece using an innovative mixed-media approach. Layers of paint interact with collage elements to create a sense of depth that shifts as the viewer moves around the work. The title references the artist's fascination with quantum physics and multiple realities.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-2.876, 3.409, -0.695),
         lookAt: new THREE.Vector3(-3.353, 3.419, -0.508),
         name: "Artwork7 View",
-        info: "View of the artwork on north wall",
+        info: "This evocative piece is part of the artist's acclaimed 'Urban Fragments' series. It captures the essence of city life through abstracted architectural forms and vibrant color fields. Created over a period of two years, the work evolved as the artist moved between different neighborhoods, absorbing the unique energy and character of each place. The textural elements were achieved using a combination of traditional painting techniques and experimental materials.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(1.186, 2.882, -1.236),
         lookAt: new THREE.Vector3(1.286, 2.882, -1.426),
         name: "Artwork8 View",
-        info: "View of the artwork on north wall",
+        info: "This meditative landscape draws inspiration from the artist's childhood memories of the Dutch countryside. The horizontal composition creates a sense of expansiveness while the carefully balanced color palette evokes the distinctive quality of light found in Northern European skies. Though seemingly simple at first glance, closer inspection reveals intricate details and subtle variations in texture that reward prolonged viewing.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(0.734, 2.728, -2.264),
         lookAt: new THREE.Vector3(0.670, 2.727, -2.410),
         name: "Artwork9 View",
-        info: "View of the artwork",
+        info: "This powerful abstract work represents the culmination of the artist's exploration of color theory and emotional expression. The bold, gestural brushwork and vibrant palette create a sense of movement and energy that seems to extend beyond the canvas. Created during a particularly transformative period in the artist's life, the piece embodies themes of renewal and personal growth. It was the centerpiece of the acclaimed 'Transitions' exhibition at the Modern Art Museum.",
         isArtwork: true
       },
   ];
@@ -603,12 +603,78 @@ function showPointInfo(name, info = "") {
     </div>
   `;
   
+  // Create a toggle button for the description
+  const descriptionToggle = info ? `
+    <div style="margin:5px 0;">
+      <button id="toggle-description" style="
+        background: none;
+        border: none;
+        color: #00ff88;
+        font-size: 0.9rem;
+        padding: 5px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      ">
+        <span id="toggle-icon" style="
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          line-height: 18px;
+          text-align: center;
+          border-radius: 50%;
+          border: 1px solid #00ff88;
+          margin-right: 8px;
+        ">+</span>
+        Show artwork story
+      </button>
+      <div id="description-content" style="
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        margin-top: 0;
+        padding: 0 10px;
+        border-left: 2px solid #00ff88;
+        font-size: 0.9rem;
+      ">${info}</div>
+    </div>
+  ` : '';
+
   infoElement.innerHTML = `
     <h3 style="margin:0 0 10px 0;font-size:1.4rem;color:#00ff88">${name}</h3>
-    ${info ? `<p style="margin:0;font-size:0.9rem">${info}</p>` : ''}
+    ${descriptionToggle}
     <p style="margin:10px 0 0 0;font-size:0.8rem;opacity:0.6">Click elsewhere to move to another point or return</p>
     ${currentPointIndex >= 0 ? navigationButtons : ''}
   `;
+  
+  // Add event listener for the toggle button
+  if (info) {
+    setTimeout(() => {
+      const toggleBtn = document.getElementById('toggle-description');
+      const descContent = document.getElementById('description-content');
+      const toggleIcon = document.getElementById('toggle-icon');
+      
+      if (toggleBtn && descContent && toggleIcon) {
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent click from bubbling up
+          
+          if (descContent.style.maxHeight === '0px' || !descContent.style.maxHeight) {
+            descContent.style.maxHeight = '300px'; // Expand
+            descContent.style.marginTop = '10px';
+            descContent.style.paddingBottom = '10px';
+            toggleIcon.innerHTML = '−'; // Minus sign
+          } else {
+            descContent.style.maxHeight = '0px'; // Collapse
+            descContent.style.marginTop = '0';
+            descContent.style.paddingBottom = '0';
+            toggleIcon.innerHTML = '+'; // Plus sign
+          }
+        });
+      }
+    }, 100); // Small delay to ensure DOM is ready
+  }
   
   infoElement.style.display = "block";
   
