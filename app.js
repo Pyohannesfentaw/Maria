@@ -333,11 +333,29 @@ function updateRotation() {
   }
 }
 
-// Handle click
-container.addEventListener('click', (event) => {
+// Handle click and touch events
+function handleInteraction(event) {
+  // Prevent default behavior for touch events
+  if (event.type === 'touchstart') {
+    event.preventDefault();
+  }
+  
   const rect = container.getBoundingClientRect();
-  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  
+  // Get coordinates from either mouse click or touch
+  let clientX, clientY;
+  
+  if (event.type === 'touchstart') {
+    clientX = event.touches[0].clientX;
+    clientY = event.touches[0].clientY;
+  } else {
+    clientX = event.clientX;
+    clientY = event.clientY;
+  }
+  
+  // Convert to normalized device coordinates
+  mouse.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((clientY - rect.top) / rect.height) * 2 + 1;
 
   raycaster.setFromCamera(mouse, camera);
   
@@ -384,6 +402,29 @@ container.addEventListener('click', (event) => {
   } else if (isZoomedIn) {
     // Return to saved position
     returnToSavedPosition();
+  }
+}
+
+// Add mouse click event listener
+container.addEventListener('click', handleInteraction);
+
+// Add touch event listeners for mobile
+container.addEventListener('touchstart', handleInteraction, { passive: false });
+
+// Handle hover effects for desktop
+container.addEventListener('mousemove', (event) => {
+  const rect = container.getBoundingClientRect();
+  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  
+  // Update cursor style when hovering over zoom points
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(zoomPoints);
+  
+  if (intersects.length > 0) {
+    document.body.style.cursor = 'pointer';
+  } else {
+    document.body.style.cursor = 'default';
   }
 });
 
@@ -528,14 +569,36 @@ function showPointInfo(name, info = "") {
     document.body.appendChild(infoElement);
   }
   
-  // Add navigation buttons
+  // Add navigation buttons with mobile-friendly styling
   const navigationButtons = `
     <div style="display: flex; justify-content: space-between; margin-top: 15px;">
-      <button id="prev-point" style="padding: 5px 15px; background: #3333ff; border: none; color: white; border-radius: 5px; cursor: pointer;">
-        <span style="font-size: 1.2rem;">←</span> Previous
+      <button id="prev-point" style="
+        padding: 10px 20px; 
+        background: #3333ff; 
+        border: none; 
+        color: white; 
+        border-radius: 8px; 
+        cursor: pointer;
+        font-size: 16px;
+        min-width: 120px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      ">
+        <span style="font-size: 1.4rem;">←</span> Previous
       </button>
-      <button id="next-point" style="padding: 5px 15px; background: #3333ff; border: none; color: white; border-radius: 5px; cursor: pointer;">
-        Next <span style="font-size: 1.2rem;">→</span>
+      <button id="next-point" style="
+        padding: 10px 20px; 
+        background: #3333ff; 
+        border: none; 
+        color: white; 
+        border-radius: 8px; 
+        cursor: pointer;
+        font-size: 16px;
+        min-width: 120px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      ">
+        Next <span style="font-size: 1.4rem;">→</span>
       </button>
     </div>
   `;
@@ -775,27 +838,34 @@ function createInstructionBox() {
   instructionBox.style.position = "fixed";
   instructionBox.style.bottom = "20px";
   instructionBox.style.right = "20px";
-  instructionBox.style.backgroundColor = "rgba(0,0,0,0.7)";
+  instructionBox.style.backgroundColor = "rgba(0,0,0,0.8)";
   instructionBox.style.color = "white";
-  instructionBox.style.padding = "10px 15px";
-  instructionBox.style.borderRadius = "5px";
+  instructionBox.style.padding = "12px 18px";
+  instructionBox.style.borderRadius = "8px";
   instructionBox.style.fontFamily = "Arial, sans-serif";
-  instructionBox.style.fontSize = "14px";
+  instructionBox.style.fontSize = "16px";
   instructionBox.style.zIndex = "100";
-  instructionBox.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
-  instructionBox.style.borderLeft = "3px solid #ff6600";
+  instructionBox.style.boxShadow = "0 0 15px rgba(0,0,0,0.6)";
+  instructionBox.style.borderLeft = "4px solid #ff6600";
+  instructionBox.style.maxWidth = "90%";
+  instructionBox.style.width = "auto";
+  instructionBox.style.textAlign = "center";
+  
+  // Check if we're on a mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   
   // Add orange circle icon and text
   instructionBox.innerHTML = `
     <div style="display: flex; align-items: center;">
       <div style="
-        width: 12px;
-        height: 12px;
+        width: 16px;
+        height: 16px;
         background-color: #ff6600;
         border-radius: 50%;
-        margin-right: 8px;
+        margin-right: 10px;
+        flex-shrink: 0;
       "></div>
-      <span>Click on the orange circles to view images</span>
+      <span>${isMobile ? "Tap" : "Click"} on the orange circles to view images</span>
     </div>
   `;
   
