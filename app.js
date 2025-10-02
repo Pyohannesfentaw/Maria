@@ -92,7 +92,7 @@ function createZoomPoints(center, size) {
       lookAt: new THREE.Vector3(0.407, 1.385, -0.055),
       name: "Vergelijking met klasgenoten", // Titel van het werk
        info: "Als ik mijn ervaringen vergelijk met die van mijn klasgenoten merk ik dat we paar dingen verschillend doen. Ik neem bijvoorbeeld mijn tijd om foto’s te maken en rond te kijken terwijl anderen er snel door heen gaan. Ook gaan andere klasgenoten naar wat drukkere plekken om foto’s te maken wat ik zelf niet zo snel doe. Anderen denken dat ik misschien te rustig of voorzichtig ben. Waar we het over eens mee zijn is dat sommige ervaringen zoals het Colosseum of de bioscoop erg bijzonder en leuk zijn. Waar we weer in verschillen is vooral hoe we die momenten beleven en waarop we letten. Zo door andere hun beeld te hebben en begrijpen kan ik er ook van leren.",
-      isArtwork: true
+      isArtwork: false
     },
     {
         position: new THREE.Vector3(2.724, 2.062, 0.846),
