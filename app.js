@@ -112,7 +112,7 @@ function createZoomPoints(center, size) {
         position: new THREE.Vector3(-2.356, 2.501, -0.712),
         lookAt: new THREE.Vector3(-3.259, 2.551, -2.794),
         name: "Fotografie",
-        info: "This striking piece represents the artist's exploration of memory and identity. Inspired by childhood recollections of summer afternoons, the vibrant colors and bold brushstrokes create a sense of nostalgia while simultaneously challenging our perception of remembered spaces. The painting took over six months to complete as layers were continuously added and refined.",
+        info: "Ik vind het zelf heel leuk om foto’s te maken, vooral van dingen die ik mooi of bijzonder vind, zoals landschappen of interessante gebouwen. Deze foto heb ik genomen toen ik in Griekenland was met mijn familie. Daar heb ik veel foto’s genomen omdat ik de natuur en landschap heel mooi vind. Deze foto specifiek vond ik bijzonder omdat je ook het uitzicht en het vliegtuig ziet. In deze foto heb je veel details waar je aandacht aan besteedt en dat vind ik heel mooi, maar ook heel leerzaam. Fotografie zelf maakt voor mij momenten specialer en helpt mij herinneringen te bewaren. Ik heb veel plezier met het maken van foto’s en ik voel me vaak trots als een foto goed is gelukt.",
         isArtwork: true
       },
       {
