@@ -83,71 +83,71 @@ loader.load(
   (err) => console.error('Error loading model:', err)
 );
 
-// Function to create zoom points
+//---------------------------------------- TEXT AANPASSEN HIER ------------------------------------------------------------
 function createZoomPoints(center, size) {
   // Define zoom point positions and information
   const pointsData = [
     {
       position: new THREE.Vector3(1.006, 1.336, -0.114),
       lookAt: new THREE.Vector3(0.407, 1.385, -0.055),
-      name: "Aan Tafel",
-      info: "Welcome to the virtual art gallery! This central viewing point offers a perfect starting place to explore the collection. Look around to discover the orange markers that indicate artworks throughout the space. Click on these markers to view each piece up close and learn about its story. Use the navigation buttons to move between artworks or click elsewhere to return to your previous position.",
+      name: "Vergelijking met klasgenoten", // Titel van het werk
+       info: "Als ik mijn ervaringen vergelijk met die van mijn klasgenoten merk ik dat we paar dingen verschillend doen. Ik neem bijvoorbeeld mijn tijd om foto’s te maken en rond te kijken terwijl anderen er snel door heen gaan. Ook gaan andere klasgenoten naar wat drukkere plekken om foto’s te maken wat ik zelf niet zo snel doe. Anderen denken dat ik misschien te rustig of voorzichtig ben. Waar we het over eens mee zijn is dat sommige ervaringen zoals het Colosseum of de bioscoop erg bijzonder en leuk zijn. Waar we weer in verschillen is vooral hoe we die momenten beleven en waarop we letten. Zo door andere hun beeld te hebben en begrijpen kan ik er ook van leren.",
       isArtwork: true
     },
     {
         position: new THREE.Vector3(2.724, 2.062, 0.846),
         lookAt: new THREE.Vector3(7.770, 2.359, -1.409),
-        name: "Artwork1 View",
-        info: "This piece was inspired by the interplay of light and shadow in Amsterdam's canal houses. Created during a particularly rainy autumn, it captures the warm glow that emerges from within the darkness. The artist used a unique layering technique to achieve the depth and luminosity that characterizes this work.",
+        name: "Citadella Toren",
+        info: "In klas 3 ben ik samen met twee klassen naar Malta geweest. Tijdens die reis hebben we veel dingen gedaan en bezocht. Een van die activiteiten was het bezoeken van de Citadella Toren op het eiland Gozo. Dit is een heel oud kasteel dat een belangrijke rol speelde in de geschiedenis van het eiland. Wat mij meteen opviel, was dat er nog echte kanonnen stonden. Dat vond ik heel bijzonder en cool om te zien, omdat je je zo beter kan voorstellen van hoe het vroeger nou eigenlijk was. Ook kregen we een rondleiding in het kasteel. Tijdens die tour kregen veel informatie over de geschiedenis van Citadella. Daardoor kreeg ik een beter beeld van hoe belangrijk dit gebouw was en waarom het nu nog steeds zo bijzonder is. ",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(3.006, 3.334, 0.484),
         lookAt: new THREE.Vector3(7.967, 3.131, -1.247),
-        name: "Artwork2 View",
-        info: "This artwork is a reflection on the relationship between nature and architecture. The artist explores the tension between the organic forms of the natural world and the geometric structures of human creation. The result is a captivating blend of textures and colors that invites the viewer to contemplate the intersection of these two realms.",
+        name: "Greeting to the Sea",
+        info: "Ik ben met mijn ouders naar Kroatië geweest. We hebben veel verschillende dingen gedaan en gezien. Wat ik echt het allermooist vond, was het zien van de zonsondergang bij Greeting to the Sea in Zadar. Dit is een bijzondere plek aan zee waar je niet alleen de mooie kleuren van de zon ziet, maar ook het geluid die de Sea Organ maakt. Die maken muziek van de golven van het water, en dat klonk geweldig terwijl de zon onder ging. Die avond regende het een beetje, maar dat maakte het juist grappig om te zien hoe mensen van hun droge plek naar de kant van de zee rende om toch foto's te maken. Ik vind het zelf heel leuk om foto's te maken van zonsondergangen, en ondanks de regen had ik een perfecte kans om dat te doen. De roze en oranje kleuren van de lucht en hoe het reflecteerde op het water was prachtig. Ik vond dit een hele mooie ervaring. ",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-2.356, 2.501, -0.712),
         lookAt: new THREE.Vector3(-3.259, 2.551, -2.794),
-        name: "Artwork4 View",
+        name: "Fotografie",
         info: "This striking piece represents the artist's exploration of memory and identity. Inspired by childhood recollections of summer afternoons, the vibrant colors and bold brushstrokes create a sense of nostalgia while simultaneously challenging our perception of remembered spaces. The painting took over six months to complete as layers were continuously added and refined.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-1.508, 2.264, 2.289),
         lookAt: new THREE.Vector3(-2.265, 2.312, 2.584),
-        name: "Artwork5 View",
-        info: "This contemplative work explores themes of solitude and inner peace. Created during the artist's retreat in the mountains, it captures the serene quality of morning light as it filters through mist. The subtle color palette and delicate brushwork invite viewers to pause and reflect on moments of quiet beauty in their own lives. The piece won critical acclaim when first exhibited in 2023.",
+        name: "Colosseum",
+        info: "Ik ben met mijn familie naar Italië geweest en we hebben daar het Colosseum bezocht. Van buiten zag het er heel mooi en indrukwekkend uit. Alleen waren ze in de tijd dat wij er waren bezig met verbouwingen, waardoor het iets minder aantrekkelijk uitzag. Toen we eenmaal binnen waren, was ik best verast. Ik had verwacht dat er meer te zien zou zijn, maar het was eigenlijk vrij leeg. Er stonden wel paar maquettes die lieten zien hoe het er vroeger uitzag. Ook kon je beneden bij de muren naar binnen, maar dat hebben wij niet gedaan. Toch vond ik het een bijzondere ervaring. Het was best druk, maar je kon er wel mooie foto's maken en het voelde speciaal om op zon beroemde en historische plek te staan.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-1.785, 3.486, 2.401),
         lookAt: new THREE.Vector3(-2.195, 3.490, 2.559),
-        name: "Artwork6 View",
-        info: "This dynamic composition challenges conventional notions of perspective and space. The artist, influenced by both cubism and digital art, created this piece using an innovative mixed-media approach. Layers of paint interact with collage elements to create a sense of depth that shifts as the viewer moves around the work. The title references the artist's fascination with quantum physics and multiple realities.",
+        name: "The Birth of Venus",
+        info: "Toen ik in Italië was heb ik ook museums bezocht. In een van de museums heb ik het schilderij The Birth of Venus gezien van Bottecelli. Ik vond de kleuren heel mooi en het licht laat bijna het schilderij glanzen. Ook zag ik dat de contrasten tussen de figuren en achtergrond diepte gaf aan het schilderij. Ik vind het knap hoe Botticelli door, licht en vorm een soort gevoel kan over brengen met alle details. Dit schilderij liet me zien dat je geen woorden nodig hebt om een emotie of gevoel te willen overbrengen.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(-2.876, 3.409, -0.695),
         lookAt: new THREE.Vector3(-3.353, 3.419, -0.508),
-        name: "Artwork7 View",
-        info: "This evocative piece is part of the artist's acclaimed 'Urban Fragments' series. It captures the essence of city life through abstracted architectural forms and vibrant color fields. Created over a period of two years, the work evolved as the artist moved between different neighborhoods, absorbing the unique energy and character of each place. The textural elements were achieved using a combination of traditional painting techniques and experimental materials.",
+        name: "Film",
+        info: "Ik ga graag naar de bioscoop, meestal met vrienden of mijn broers. Ik vind het leuk om een film op het grote scherm te zien. Dat maakt het veel leuker dan het kijken op je eigen tv. Het geluid en beelden zijn ook veel beter in de bioscoop dan thuis wat het speciaal maakt. Naar de bioscoop gaan is voor mij een leuke manier om te ontspannen en even iets anders te doen. Ook is het altijd gezellig sinds je samen lacht of schrikt bij sommige scenes. Mijn favoriete filmgenres zijn comedy, actie en mysterie. Daar kijk ik ook echt het liefst naar.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(1.186, 2.882, -1.236),
         lookAt: new THREE.Vector3(1.286, 2.882, -1.426),
-        name: "Artwork8 View",
-        info: "This meditative landscape draws inspiration from the artist's childhood memories of the Dutch countryside. The horizontal composition creates a sense of expansiveness while the carefully balanced color palette evokes the distinctive quality of light found in Northern European skies. Though seemingly simple at first glance, closer inspection reveals intricate details and subtle variations in texture that reward prolonged viewing.",
+        name: "Maria bedevaartsoord in Banneux",
+        info: "Ik ben met mijn familie naar Maria bedevaartsoord in Banneux geweest. Dit is een grote kerk in België waar wij bijna elk jaar naartoe gaan. Voor mijn ouders is dit een hele bijzondere plek dus daarom dat we er steeds heen gaan.  Elke keer dat ik daar kom, voel ik een soort rust. Het is vaak stil rond in en rond de kerk, en dat geeft mij de kans om even helemaal tot mezelf te komen. Dat rustgevende gevoel maakt mijn ervaring in deze kerk telkens weer speciaal en ook onvergetelijk. Het is bijzonder om te zien hoeveel mensen daar eigenlijk heen gaan met hun eigen redenen.",
         isArtwork: true
       },
       {
         position: new THREE.Vector3(0.734, 2.728, -2.264),
         lookAt: new THREE.Vector3(0.670, 2.727, -2.410),
-        name: "Artwork9 View",
-        info: "This powerful abstract work represents the culmination of the artist's exploration of color theory and emotional expression. The bold, gestural brushwork and vibrant palette create a sense of movement and energy that seems to extend beyond the canvas. Created during a particularly transformative period in the artist's life, the piece embodies themes of renewal and personal growth. It was the centerpiece of the acclaimed 'Transitions' exhibition at the Modern Art Museum.",
+        name: "Muziek",
+        info: "Ik luister heel veel naar muziek op Spotify van alerlei verschillende artiesten. Het hangt af van hoe ik me voel en waar ik zin in heb. Soms luister ik naar rustige nummers van Brent Faiyaz of Daniel Caeser, hun maken vooral R&B muziek. Dat luister ik meestal als ik naar school ga, huiswerk maak of teken. Andere keren luister ik naar wat vrolijker muziek zoals van The Weeknd en Rihanna, hun maken veel Popmuziek. Dat luister ik vooral als ik iets actiefs doe of met vrienden ben. Ik combineer muziek met wat ik ook doe, dat maakt het wat je ook doet een stuk leuker voor mij.",
         isArtwork: true
       },
   ];
@@ -584,7 +584,7 @@ function showPointInfo(name, info = "") {
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
       ">
-        <span style="font-size: 1.4rem;">←</span> Previous
+        <span style="font-size: 1.4rem;">←</span> Vorige
       </button>
       <button id="next-point" style="
         padding: 10px 20px; 
@@ -598,7 +598,7 @@ function showPointInfo(name, info = "") {
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
       ">
-        Next <span style="font-size: 1.4rem;">→</span>
+        Volgende <span style="font-size: 1.4rem;">→</span>
       </button>
     </div>
   `;
@@ -628,7 +628,7 @@ function showPointInfo(name, info = "") {
           border: 1px solid #00ff88;
           margin-right: 8px;
         ">+</span>
-        Show artwork story
+        Lees meer
       </button>
       <div id="description-content" style="
         max-height: 0;
@@ -645,7 +645,7 @@ function showPointInfo(name, info = "") {
   infoElement.innerHTML = `
     <h3 style="margin:0 0 10px 0;font-size:1.4rem;color:#00ff88">${name}</h3>
     ${descriptionToggle}
-    <p style="margin:10px 0 0 0;font-size:0.8rem;opacity:0.6">Click elsewhere to move to another point or return</p>
+    <p style="margin:10px 0 0 0;font-size:0.8rem;opacity:0.6">Klik ergens anders om naar een ander punt te gaan of terug te keren</p>
     ${currentPointIndex >= 0 ? navigationButtons : ''}
   `;
   
@@ -819,66 +819,66 @@ function getImageForArtwork(artworkName) {
   
   // Map artwork names to image configurations
   const artworkConfigs = {
-    "Artwork1 View": {
-      path: "img/Artwork1.JPG",
+    "Colosseum": {
+      path: "img/collo.JPG",
       width: "600px",
-      height: "570px",
-      offsetX: "-60px",
+      height: "860px",
+      offsetX: "30px",
       offsetY: "-50px"
     },
-    "Artwork2 View": {
-      path: "img/Artwork2.JPG",
+    "Greeting to the Sea": {
+      path: "img/sea.JPG",
       width: "540px",
       height: "720px",
       offsetX: "32px",
       offsetY: "14px"
     },
-    "Artwork4 View": {
-      path: "img/Artwork4.JPG",
+    "Fotografie": {
+      path: "img/fotografie.JPG",
       width: "750px",
       height: "960px",
       offsetX: "-38px"
     },
-    "Artwork5 View": {
-      path: "img/Artwork5.JPG",
+    "The Birth of Venus": {
+      path: "img/birthofvenus.JPG",
       width: "560px",
       height: "717px",
       offsetX: "-14px",
       offsetY: "14px"
     },
-    "Artwork6 View": {
-      path: "img/Artwork6.JPG",
+    "Film": {
+      path: "img/film.JPG",
       width: "630px",
       height: "723px",
       offsetX: "-19px",
       offsetY: "23px"
     },
-    "Artwork7 View": {
-      path: "img/Artwork7.JPG",
+    "Citadella Toren": {
+      path: "img/canon.JPG",
       offsetX: "-43px",
-      offsetY: "37px",
+      offsetY: "-50px",
       width: "510px",
-      height: "630px"
+      height: "830px"
     },
-    "Artwork8 View": {
-      path: "img/Artwork8.JPG",
+    "Maria bedevaartsoord in Banneux": {
+      path: "img/Maria.JPG",
       width: "590px",
       height: "480px",
       offsetX: "-40px",
       offsetY: "20px"
     },
-    "Artwork9 View": {
-      path: "img/Artwork9.JPG",
-      width: "580px",
-      height: "660px",
-      offsetX: "14px",
-      offsetY: "-20px"
+    "Muziek": {
+      path: "img/music.png",
+      width: "780px",
+      height: "760px",
+      offsetX: "-24px",
+      offsetY: "20px"
     }
   };
   
   // Default config
   const defaultConfig = {
-    path: "img/Artwork1.JPG",
+    path: "img/canon.JPG",
     width: "500px",
     height: "400px"
   };
